@@ -52,7 +52,7 @@ const PromoBanner = () => {
                   <span className="w-1 h-1 bg-accent-foreground/50 rounded-full" />
                   <span className="flex items-center gap-2">
                     <Percent size={16} />
-                    Use Code: AAVTAN20
+                    Use Code: Flat20
                   </span>
                   <span className="w-1 h-1 bg-accent-foreground/50 rounded-full" />
                   <span className="flex items-center gap-2">
@@ -140,7 +140,7 @@ const PromoBanner = () => {
                     Use code at checkout
                   </div>
                   <div className="inline-block bg-charcoal text-warm-cream px-4 py-2 rounded-lg font-mono font-bold tracking-wider">
-                    AAVTAN20
+                    Flat20
                   </div>
                 </motion.div>
 
