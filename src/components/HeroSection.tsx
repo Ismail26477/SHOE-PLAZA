@@ -10,7 +10,7 @@ const heroSlides = [
   {
     image: heroImage,
     title: 'Step Into Style with',
-    highlight: 'Aavtan Footwear',
+    highlight: 'Shoe Plaza',
     subtitle: 'Trendy, Comfortable & Affordable Footwear Collection',
   },
   {
