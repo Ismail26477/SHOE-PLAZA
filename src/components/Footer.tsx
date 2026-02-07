@@ -34,7 +34,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <a href="#home" className="font-display text-2xl font-bold">
-              Aavtan <span className="text-gold-accent">Footwear</span>
+              Shoe<span className="text-gold-accent">Plaza</span>
             </a>
             <p className="text-warm-cream/60 text-sm mt-4 leading-relaxed">
               Step into style with our premium footwear collection. Quality,
@@ -109,7 +109,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-warm-cream/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-warm-cream/40 text-sm">
-            © 2024 Aavtan Footwear. All rights reserved.
+            © 2026 Shoe Plaza. All rights reserved.
           </p>
           <p className="text-warm-cream/40 text-sm flex items-center gap-1">
             Made with <Heart size={14} className="text-accent fill-accent" /> by D-Code Studio
