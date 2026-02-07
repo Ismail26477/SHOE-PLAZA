@@ -40,7 +40,7 @@ const Navbar = () => {
             className="font-display text-2xl md:text-3xl font-bold text-primary"
             whileHover={{ scale: 1.02 }}
           >
-            Aavtan <span className="text-accent">Footwear</span>
+            Shoe<span className="text-accent">Plaza</span>
           </motion.a>
 
           {/* Desktop Navigation */}
