@@ -27,7 +27,7 @@ const CTASection = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4"
             >
-              Visit Aavtan Footwear Today
+              Visit Shoe Plaza Today
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
