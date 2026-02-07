@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -7,9 +9,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -27,88 +27,95 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? 'glass-nav shadow-soft py-3' : 'bg-transparent py-5'
+        isScrolled
+          ? 'backdrop-blur-md bg-white/70 shadow-lg py-2'
+          : 'bg-transparent py-4'
       }`}
     >
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <motion.a
+      <div className="container mx-auto px-4 md:px-8 relative">
+        {/* MOBILE LAYOUT */}
+        <div className="flex lg:hidden items-center justify-between">
+          {/* Left Menu */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="text-primary z-50"
+          >
+            {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+          </button>
+
+          {/* Center Logo */}
+          <a
             href="#home"
-            className="font-display text-2xl md:text-3xl font-bold text-primary"
-            whileHover={{ scale: 1.02 }}
+            className="absolute left-1/2 -translate-x-1/2 font-display text-2xl font-bold text-primary"
           >
             Shoe<span className="text-accent">Plaza</span>
-          </motion.a>
+          </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          {/* Right Call */}
+          <a
+            href="tel:09545545417"
+            className="bg-accent text-white p-2 rounded-full shadow-md"
+          >
+            <Phone size={18} />
+          </a>
+        </div>
+
+        {/* DESKTOP LAYOUT */}
+        <div className="hidden lg:flex items-center justify-between">
+          <a
+            href="#home"
+            className="font-display text-3xl font-bold text-primary"
+          >
+            Shoe<span className="text-accent">Plaza</span>
+          </a>
+
+          <div className="flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-foreground/80 hover:text-primary font-medium transition-colors duration-300 underline-animate"
+                className="text-foreground/80 hover:text-primary font-medium transition"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="tel:09545545417"
-              className="btn-accent flex items-center gap-2 text-sm py-3"
-            >
-              <Phone size={16} />
-              Call Now
-            </a>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-primary"
+          <a
+            href="tel:09545545417"
+            className="btn-accent flex items-center gap-2 px-5 py-3"
           >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+            <Phone size={16} />
+            Call Now
+          </a>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden glass-nav border-t border-border"
+            className="lg:hidden backdrop-blur-md bg-white/90 border-t"
           >
-            <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+            <div className="px-6 py-6 flex flex-col gap-5">
               {navLinks.map((link, index) => (
                 <motion.a
                   key={link.href}
                   href={link.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.08 }}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-foreground/80 hover:text-primary font-medium py-2 transition-colors"
+                  className="text-lg font-medium"
                 >
                   {link.label}
                 </motion.a>
               ))}
-              <a
-                href="tel:09545545417"
-                className="btn-accent flex items-center justify-center gap-2 mt-4"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <Phone size={18} />
-                Call Now
-              </a>
             </div>
           </motion.div>
         )}
