@@ -94,7 +94,7 @@ const Footer = () => {
             <h4 className="font-display text-lg font-semibold mb-4">Contact</h4>
             <div className="space-y-3 text-sm text-warm-cream/60">
               <p>
-                <span className="text-warm-cream">Phone:</span> 095455 45417
+                <span className="text-warm-cream">Phone:</span> +91 9890511700
               </p>
               <p>
                 <span className="text-warm-cream">Owner:</span> Pratham Darunkar
