@@ -9,7 +9,7 @@ const testimonials = [
     name: 'Rahul Sharma',
     role: 'Business Professional',
     content:
-      'The formal shoes I bought from Aavtan are incredibly comfortable. I wear them daily to office and they still look brand new after 6 months!',
+      'The formal shoes I bought from Shoe Plaza are incredibly comfortable. I wear them daily to office and they still look brand new after 6 months!',
     rating: 5,
   },
   {
@@ -25,7 +25,7 @@ const testimonials = [
     name: 'Amit Kumar',
     role: 'Sports Enthusiast',
     content:
-      'Best sports shoes I have ever owned. Great grip, lightweight, and very durable. Aavtan never disappoints!',
+      'Best sports shoes I have ever owned. Great grip, lightweight, and very durable. Shoe Plaza never disappoints!',
     rating: 5,
   },
   {
