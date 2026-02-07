@@ -79,7 +79,7 @@ const AboutSection = () => {
             >
               <img
                 src={storeImage}
-                alt="Aavtan Footwear Store"
+                alt="Shoe Plaza"
                 className="w-full h-[400px] lg:h-[500px] object-cover"
               />
             </motion.div>
@@ -143,7 +143,7 @@ const AboutSection = () => {
               transition={{ delay: 0.5 }}
               className="text-muted-foreground leading-relaxed mb-6"
             >
-              At Aavtan Footwear, we believe that the right pair of shoes can
+              At Shoe Plaza, we believe that the right pair of shoes can
               transform your entire look and boost your confidence. Founded with
               a passion for quality craftsmanship and modern design, we've been
               serving our community with the finest footwear collection.
