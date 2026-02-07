@@ -29,8 +29,8 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'info@aavtanfootwear.com',
-      href: 'mailto:info@aavtanfootwear.com',
+      value: 'info@shoeplaza.com',
+      href: 'mailto:info@shoeplaza.com',
     },
     {
       icon: MapPin,
