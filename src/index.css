@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 40 20% 98%;
+    --foreground: 30 10% 15%;
+
+    --card: 40 25% 97%;
+    --card-foreground: 30 10% 15%;
+
+    --popover: 40 20% 98%;
+    --popover-foreground: 30 10% 15%;
+
+    --primary: 30 40% 25%;
+    --primary-foreground: 40 20% 98%;
+
+    --secondary: 35 30% 90%;
+    --secondary-foreground: 30 40% 25%;
+
+    --muted: 35 20% 92%;
+    --muted-foreground: 30 10% 45%;
+
+    --accent: 25 60% 45%;
+    --accent-foreground: 40 20% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 35 25% 88%;
+    --input: 35 25% 88%;
+    --ring: 30 40% 25%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --warm-cream: 40 30% 96%;
+    --warm-beige: 35 35% 88%;
+    --rich-brown: 25 50% 30%;
+    --soft-tan: 30 25% 75%;
+    --charcoal: 30 10% 20%;
+    --gold-accent: 38 70% 50%;
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --shadow-soft: 0 4px 20px -4px hsl(30 20% 20% / 0.08);
+    --shadow-lift: 0 12px 40px -12px hsl(30 20% 20% / 0.15);
+    --shadow-glow: 0 0 40px hsl(38 70% 50% / 0.15);
+  }
+
+  .dark {
+    --background: 30 10% 10%;
+    --foreground: 40 20% 95%;
+    --card: 30 10% 12%;
+    --card-foreground: 40 20% 95%;
+    --popover: 30 10% 12%;
+    --popover-foreground: 40 20% 95%;
+    --primary: 35 35% 85%;
+    --primary-foreground: 30 10% 10%;
+    --secondary: 30 15% 20%;
+    --secondary-foreground: 40 20% 95%;
+    --muted: 30 15% 18%;
+    --muted-foreground: 35 15% 60%;
+    --accent: 25 60% 55%;
+    --accent-foreground: 30 10% 10%;
+    --border: 30 15% 22%;
+    --input: 30 15% 22%;
+    --ring: 35 35% 85%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .section-tight {
+    @apply py-12 md:py-16;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-rich-brown via-accent to-gold-accent bg-clip-text text-transparent;
+  }
+
+  .glass-nav {
+    @apply backdrop-blur-xl bg-background/80 border-b border-border/50;
+  }
+
+  .card-lift {
+    @apply transition-all duration-500 ease-out hover:shadow-lift hover:-translate-y-2;
+  }
+
+  .image-zoom {
+    @apply overflow-hidden;
+  }
+
+  .image-zoom img {
+    @apply transition-transform duration-700 ease-out hover:scale-110;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-8 py-4 rounded-full font-medium 
+           transition-all duration-300 hover:bg-rich-brown hover:shadow-lift 
+           hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary px-8 py-4 rounded-full font-medium 
+           transition-all duration-300 hover:bg-primary hover:text-primary-foreground 
+           hover:shadow-lift hover:-translate-y-0.5;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground px-8 py-4 rounded-full font-medium 
+           transition-all duration-300 hover:bg-gold-accent hover:shadow-glow 
+           hover:-translate-y-0.5;
+  }
+
+  .underline-animate {
+    @apply relative;
+  }
+
+  .underline-animate::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300;
+  }
+
+  .underline-animate:hover::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-lift {
+    box-shadow: var(--shadow-lift);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+}
